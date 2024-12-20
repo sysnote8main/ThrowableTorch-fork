@@ -10,7 +10,6 @@ import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -24,8 +23,8 @@ public class ThrowableTorchEntity extends ThrownItemEntity {
         super(entityType, world);
     }
 
-    public ThrowableTorchEntity(EntityType<? extends ThrownItemEntity> type, LivingEntity owner, World world, ItemStack stack) {
-        super(type, owner, world, stack);
+    public ThrowableTorchEntity(EntityType<? extends ThrownItemEntity> type, LivingEntity owner, World world) {
+        super(type, owner, world);
     }
 
     @Override
@@ -77,7 +76,7 @@ public class ThrowableTorchEntity extends ThrownItemEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         var entity = entityHitResult.getEntity();
-        entity.damage((ServerWorld) getWorld(), getWorld().getDamageSources().inFire(), 1.0F);
+        entity.damage(getWorld().getDamageSources().inFire(), 1.0F);
         if (getStack().isOf(ObjectRegistry.THROWABLE_MAGMA_TORCH_ITEM)) {
             if (!entityHitResult.getEntity().isFireImmune()) {
                 entityHitResult.getEntity().setOnFireFor(5);

@@ -24,10 +24,10 @@ public class ObjectRegistry {
     private static final RegistryKey<Item> HONEYCOMB_TORCH_REGISTRY_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(ThrowableTorch.MOD_ID, "throwable_honeycomb_torch"));
 
     // Items
-    public static final Item THROWABLE_SLIME_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings().registryKey(SLIME_TORCH_REGISTRY_KEY), THROWABLE_SLIME_TORCH_ENTITY);
-    public static final Item THROWABLE_CLAY_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings().registryKey(CLAY_TORCH_REGISTRY_KEY), THROWABLE_CLAY_TORCH_ENTITY);
-    public static final Item THROWABLE_MAGMA_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings().registryKey(MAGMA_TORCH_REGISTRY_KEY), THROWABLE_MAGMA_TORCH_ENTITY);
-    public static final Item THROWABLE_HONEYCOMB_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings().registryKey(HONEYCOMB_TORCH_REGISTRY_KEY), THROWABLE_HONEYCOMB_TORCH_ENTITY);
+    public static final Item THROWABLE_SLIME_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings(), THROWABLE_SLIME_TORCH_ENTITY);
+    public static final Item THROWABLE_CLAY_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings(), THROWABLE_CLAY_TORCH_ENTITY);
+    public static final Item THROWABLE_MAGMA_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings(), THROWABLE_MAGMA_TORCH_ENTITY);
+    public static final Item THROWABLE_HONEYCOMB_TORCH_ITEM = new ThrowableTorchItem(new Item.Settings(), THROWABLE_HONEYCOMB_TORCH_ENTITY);
 
     private static EntityType<ThrowableTorchEntity> registerThrowableTorch(final String id) {
         return Registry.register(Registries.ENTITY_TYPE, Identifier.of(ThrowableTorch.MOD_ID, id),
@@ -35,7 +35,7 @@ public class ObjectRegistry {
                         .dimensions(0.25F, 0.25F)
                         .maxTrackingRange(4)
                         .trackingTickInterval(10)
-                        .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(ThrowableTorch.MOD_ID, id)))
+                        .build()
         );
 
     }

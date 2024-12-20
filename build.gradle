@@ -22,6 +22,17 @@ repositories {
 		name 'Terraformers'
 		url 'https://maven.terraformersmc.com/releases/'
 	}
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
 }
 
 dependencies {
@@ -63,4 +74,8 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
+}
+
+fabricApi {
+	configureDataGeneration()
 }

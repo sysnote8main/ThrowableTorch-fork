@@ -22,6 +22,9 @@
     "client": [
       "com.daniking.throwabletorch.client.ClientSetup"
     ],
+    "fabric-datagen": [
+      "com.daniking.throwabletorch.datagen.ThrowableTorchDataGenerator"
+    ],
     "dynamiclights": [
       "com.daniking.throwabletorch.client.integration.ThrowableTorchDynLightsInitializer"
     ]
